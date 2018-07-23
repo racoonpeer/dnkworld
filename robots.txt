@@ -1,0 +1,17 @@
+User-Agent: *
+
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /cgi-bin/
+Disallow: /include/
+Disallow: /module/
+Disallow: /temp/
+Disallow: /tpl/
+
+Disallow: /admin.php
+Disallow: /login.php
+Disallow: /dumper.php
+Disallow: /test.php
+Disallow: /sinfo.php
+
+Host: sacura.in.ua

@@ -1,0 +1,39 @@
+##### Set PHP.ini value to on ##################################################
+# php_value magic_quotes_gpc 1
+# php_value display_errors 1
+# php_value error_reporting 7
+
+
+##### Additional configuration #################################################
+# DirectoryIndex index.html index.php
+# AddDefaultCharset UTF-8
+AddDefaultCharset WINDOWS-1251
+
+
+
+##### Rewrite Rules ############################################################
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+
+    RewriteEngine On
+
+    #RewriteBase /
+
+    RewriteCond %{HTTP_HOST} ^www\.cms\.weblife\.ua$ [NC]
+    RewriteRule ^(.*)$ http://cms.weblife.ua/$1 [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/([ruaen]{2})$ [NC]
+    RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [R=301,L]
+
+    #RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule . index.php [L]
+
+    ErrorDocument  400  /
+    ErrorDocument  401  /
+    ErrorDocument  403  /
+    ErrorDocument  404  /
+    ErrorDocument  500  /
+
+</IfModule>

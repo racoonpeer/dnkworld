@@ -1,0 +1,359 @@
+/*
+	Slideshow
+*/
+
+#header-slider {
+    position:relative;
+    width: 940px;
+    left: 50%;
+    margin-left: -480px;
+    z-index:100;
+    padding: 9px;
+    background: #FFF;
+    border: 1px solid #b6b6b6;
+}
+
+#header-slider .slides_container {
+    width:940px;
+    overflow:hidden;
+    position:relative;
+    display:none;
+}
+
+#header-slider .slides_container a {
+    width:940px;
+    height:320px;
+    display:block;
+    position: relative;
+}
+
+#header-slider .slides_container a .caption {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px 20px 10px;
+    color: #FFF;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.85);
+}
+
+#header-slider .slides_container a img {
+    display:block;
+}
+
+#header-slider .next,
+#header-slider .prev {
+    position:absolute;
+    top:50%;
+    margin-top: -50px;
+    width:18px;
+    height:100px;
+    padding: 0 6px;
+    display:block;
+    z-index:101;
+}
+
+#header-slider .next {
+    right:20px;
+}
+
+#header-slider .prev {
+    left: 20px;
+}
+
+#header-slider .pagination {
+    display: block;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left:0;
+    right: 0;
+    margin: 0 0 -25px;
+}
+
+#header-slider .pagination li {
+    display: inline-block;
+    margin:0 2px;
+    list-style:none;
+}
+
+#header-slider .pagination li a {
+    display:block;
+    width:12px;
+    height:0;
+    padding-top:12px;
+    background-image:url('/images/site/smart/slides/pagination.png');
+    background-position:0 0;
+    float:left;
+    overflow:hidden;
+}
+
+#header-slider .pagination li.current a {
+    background-position:0 -12px;
+}
+
+/* GALLERY LIST */
+/* IMPORTANT - Change '#myGallery' to the ID of your gallery list to prevent a flash of unstyled content */
+#gallery { display: none; }
+
+.gv_galleryWrap { 
+    position: relative; 
+    background: #FFF; 
+    font-size: 10pt; 
+    left: 50%;
+    margin-left: -306px;
+}
+
+/* GALLERY DIV */
+.gv_gallery { overflow: hidden; position: relative;}
+
+.gv_imageStore { visibility: hidden; position: absolute; top: -10000px; left: -10000px; }
+
+
+/*************************************************/
+/**   PANEL STYLES								**/
+/*************************************************/
+
+.gv_panelWrap { filter: inherit; position: absolute; overflow: hidden; }
+
+.gv_panel-loading { background: url('/images/site/smart/galleryview/img-loader.gif') 50% 50% no-repeat #aaa; }
+.gv_frame-loading { background: url('/images/site/smart/galleryview/img-loader.gif') 50% 50% no-repeat #aaa; }
+
+/* GALLERY PANELS */
+.gv_panel { 
+    filter: inherit; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    overflow: hidden; 
+    z-index: 100; 
+    background: #222;
+}
+.gv_panel img { position: absolute; }
+
+.gv_overlay { 
+    position: absolute; 
+    background: #222; 
+    color: white; 
+    z-index: 200; 
+}
+.gv_showOverlay { 
+	position: absolute; 
+	width: 20px; 
+	height: 20px; 
+	background: url('/images/site/smart/galleryview/themes/light/info.png') #222; 
+	cursor: pointer;
+	z-index: 200;
+}
+.gv_overlay h4 { 
+    color: white; 
+    margin: 1em; 
+    font-weight: bold; 
+}
+.gv_overlay p { color: white; margin: 1em; }
+.gv_infobar {
+	background: #222;
+	padding: 0 0.5em;
+	line-height: 1.5em;
+	height: 1.5em;
+	font-size: 10pt;
+	font-weight: bold;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: none;
+	vertical-align: middle;
+	z-index: 2000;
+	
+}
+/*************************************************/
+/**   FILMSTRIP STYLES							**/
+/*************************************************/
+.gv_filmstripWrap { 
+    overflow: hidden; 
+    position: absolute; 
+}
+/* FILMSTRIP */
+.gv_filmstrip { margin: 0; padding: 0; position: absolute; top: 0; left: 0; }
+
+/* FILMSTRIP FRAMES (contains both images and captions) */
+.gv_frame { 
+	cursor: pointer;
+	float: left;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+/* WRAPPER FOR FILMSTRIP IMAGES */
+.gv_frame .gv_thumbnail { position: relative;overflow: hidden !important; }
+
+/* WRAPPER FOR CURRENT FILMSTRIP IMAGE */
+.gv_frame.current .gv_thumbnail {}
+
+/* FRAME IMAGES */
+.gv_frame img { border: none; position: absolute; }
+
+/* FRAME CAPTION */
+.gv_frame .gv_caption { height: 14px; line-height: 14px; font-size: 10px; text-align: center; color:white; }
+
+/* CURRENT FRAME CAPTION */
+.gv_frame.current .gv_caption { }
+
+/* POINTER FOR CURRENT FRAME */
+.gv_pointer {
+	border-color: black;
+}
+
+/* NAVIGATION BUTTONS */
+.gv_navWrap {
+	text-align: center;
+	position: absolute;
+}
+.gv_navPlay,
+.gv_navPause,
+.gv_navNext,
+.gv_navPrev {
+	opacity: 0.3;
+	-moz-opacity: 0.3;
+	-khtml-opacity: 0.3;
+	filter:alpha(opacity=30);
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: middle;
+}
+.gv_navPlay:hover,
+.gv_navPause:hover,
+.gv_navNext:hover,
+.gv_navPrev:hover {
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+	-khtml-opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+.gv_panelNavPrev,
+.gv_panelNavNext {
+	position: absolute;
+	display: none;
+	opacity: 0.50;
+	-moz-opacity: 0.50;
+	-khtml-opacity: 0.50;
+	filter:alpha(opacity=50);
+	z-index: 200;
+}
+.gv_panelNavPrev:hover,
+.gv_panelNavNext:hover {
+	opacity: 0.9;
+	-moz-opacity: 0.9;
+	-khtml-opacity: 0.9;
+	filter:alpha(opacity=90);
+}
+.gv_navPlay {
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	background: url('/images/site/smart/galleryview/themes/light/play-big.png') top left no-repeat;
+}
+.gv_navPause {
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	background: url('/images/site/smart/galleryview/themes/light/pause-big.png') top left no-repeat;
+}
+.gv_navNext {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	background: url('/images/site/smart/galleryview/themes/light/next.png') top left no-repeat;
+}
+.gv_navPrev {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	background: url('/images/site/smart/galleryview/themes/light/prev.png') top right no-repeat;
+}
+.gv_panelNavNext {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	background: url('/images/site/smart/galleryview/themes/light/panel-next.png') top left no-repeat;
+}
+.gv_panelNavPrev {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	background: url('/images/site/smart/galleryview/themes/light/panel-prev.png') top right no-repeat;
+}
+
+/*carousel*/
+div.d-carousel {
+    width:940px;
+    position:relative;
+}
+.d-carousel ul {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.d-carousel ul li {
+    display:inline-block;
+    padding: 0 10px;
+}
+.d-carousel ul li > div {
+    border: 1px solid #b6b6b6;
+    background: #FFF;
+    padding: 8px;
+}
+.d-carousel ul li > div > a {
+    display: block;
+    width: 275px;
+    height: 210px;
+    overflow: hidden;
+}
+.d-carousel ul li > div > a:hover {
+    opacity: 0.7;
+}
+.d-carousel ul li > a > img {
+    display: block;
+}
+.d-carousel .jcarousel-next-horizontal {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top:-35px;
+    margin-right:-20px;
+    width: 18px;
+    height: 70px;
+    cursor: pointer;
+    background: transparent url('/images/site/smart/slides/carousel-arrows.png') no-repeat top right;
+}
+.d-carousel .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    margin-top:-35px;
+    margin-left:-20px;
+    width: 18px;
+    height: 70px;
+    cursor: pointer;
+    background: transparent url('/images/site/smart/slides/carousel-arrows.png') no-repeat top left;
+}
+.d-carousel .jcarousel-prev-horizontal:hover {
+    background-position: bottom left;
+}
+.d-carousel .jcarousel-next-horizontal:hover {
+    background-position: bottom right;
+}
+.d-carousel .jcarousel-next-disabled,
+.d-carousel .jcarousel-prev-disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+/*end of carousel*/

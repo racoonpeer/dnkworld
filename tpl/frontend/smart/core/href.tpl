@@ -1,0 +1,1 @@
+<{* REQUIRE VARS: $arItem=array()*}><{$UrlWL->buildItemUrl($arItem)}>

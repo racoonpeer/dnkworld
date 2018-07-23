@@ -1,0 +1,886 @@
+@import url('../bootstrap/bootstrap.css');
+@import url('slides.css');
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic&subset=latin,cyrillic);
+@font-face {
+	font-family: 'Cuprum';
+	src: url('/fonts/cuprum/Cuprum.eot');
+	src:url('/fonts/cuprum/Cuprum.eot?#iefix') format('embedded-opentype'),
+	    url('/fonts/cuprum/Cuprum.woff') format('woff'), 
+	    url('/fonts/fonts/Cuprum.ttf') format('truetype'), 
+	    url('/fonts/fonts/Cuprum.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PT Sans';
+	src: url('/fonts/pt_sans/PTSans.eot');
+	src:url('/fonts/pt_sans/PTSans.eot?#iefix') format('embedded-opentype'),
+	    url('/fonts/pt_sans/PTSans.woff') format('woff'), 
+	    url('/fonts/pt_sans/PTSans.ttf') format('truetype'), 
+	    url('/fonts/pt_sans/PTSans.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Trebuchet MS';
+	src: url('/fonts/pt_sans/TrebuchetMS.eot');
+	src:url('/fonts/pt_sans/TrebuchetMS.eot?#iefix') format('embedded-opentype'),
+	    url('/fonts/pt_sans/TrebuchetMS.woff') format('woff'), 
+	    url('/fonts/pt_sans/TrebuchetMS.ttf') format('truetype'), 
+	    url('/fonts/pt_sans/TrebuchetMS.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*common*/
+.floatleft {
+    float: left;
+}
+.floatright {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+a,
+a:link, 
+a:visited {
+    text-decoration: none;
+}
+h1.title-sans {
+    text-align: center;
+    background: transparent url('/images/site/smart/title-sans.png') center scroll no-repeat;
+}
+h1.title-sans, 
+h2.title-sans {
+    font-family: 'Cuprum', sans-serif;
+    color: #666666;
+    padding: 0;
+}
+h1.title-serif, 
+h2.title-serif, 
+h3.title-serif, 
+h4.title-serif {
+    font-family: 'PT Serif', serif;
+    color: #999;
+    padding: 0;
+}
+.row,
+.row-fluid {
+    margin-bottom: 20px;
+}
+.italic {
+    font-style: italic;
+}
+.alignleft {
+    text-align: left;
+}
+.alignright {
+    text-align: right;
+}
+mark {
+    background: transparent none;
+    color: #ff0000;
+}
+.shadowbox {
+    -o-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    -khtml-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+div.overlay-black {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.7;
+    z-index: -98;
+}
+
+body {
+    font-family: 'Trebuchet MS';
+    color: #333;
+    min-width: 960px;
+}
+
+/*layout*/
+div.canvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent url('/images/site/smart/canvas.png') scroll repeat;
+    z-index: -1000;
+}
+div.container {
+    width: 940px;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/*header*/
+div.headerbar {
+    position: relative;
+    height: 60px;
+    background-color: #8b1735;
+    border-bottom: 1px solid #8b1735;
+}
+div.headerbar.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+div.headerbar > div {
+    position: relative;
+    width: 940px;
+    left: 50%;
+    margin-left: -470px;
+}
+div.headerbar > div > div.logo {
+    width: 227px;
+    background: transparent url('/images/site/smart/menu_divider.png') right scroll repeat-y;
+    margin-right: 15px;
+    margin-left: -10px;
+}
+div.headerbar > div > div.logo > a {
+    display: inline-block;
+    line-height: 60px;
+    height: 60px;
+}
+
+/*top menu*/
+div.headerbar ul.nav {
+    display: block;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+div.headerbar ul.nav > li {
+    display: block;
+    position: relative;
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 16px 0 0;
+}
+div.headerbar ul.nav > li > a {
+    display: block;
+    position: relative;
+    line-height: 28px;
+    height: 28px;
+    padding: 0 5px;
+    font-family: 'Cuprum', sans-serif;
+    font-size: 15px;
+    color: #FFF;
+    background: transparent;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+}
+div.headerbar ul.nav > li:hover > a,
+div.headerbar ul.nav > li.active > a {
+    background: #e1e2dd;
+    color: #242424;
+}
+div.headerbar ul.nav > li > ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 70px;
+    margin: 0;
+    padding: 10px;
+    background: #353535;
+    text-align: center;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+}
+div.headerbar ul.nav > li:hover > ul {
+}
+div.headerbar ul.nav > li > ul > li {
+    display: block;
+    position: relative;
+    line-height: 28px;
+    height: 28px;
+    padding: 0 6px;
+    background: transparent;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+}
+div.headerbar ul.nav > li > ul > li:hover, 
+div.headerbar ul.nav > li > ul > li.active {
+    background: #e1e2dd;
+}
+div.headerbar ul.nav > li > ul > li > a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Cuprum', sans-serif;
+    font-size: 16px;
+}
+div.headerbar ul.nav > li > ul > li:hover > a, 
+div.headerbar ul.nav > li > ul > li.active > a {
+    color: #242424;
+}
+div.headerbar .phone {
+    font-family: 'Cuprum', sans-serif;
+    font-size: 22px;
+    color: #d9d9d9;
+    padding: 20px 10px 0 10px;
+    margin-right: -8px;
+    height: 61px;
+    background-color: #740421;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*bottom menu*/
+nav.bottommenu {
+    display: block;
+    position: relative;
+}
+nav.bottommenu > ul {
+    display: block;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav.bottommenu > ul > li {
+    display: block;
+    position: relative;
+    float: left;
+}
+nav.bottommenu > ul > li > strong {
+    color: #666666;
+    font-size: 16px;
+    font-family: 'Cuprum';
+    text-align: center;
+    display: block;
+    position: relative;
+    line-height: 20px;
+    height: 20px;
+}
+nav.bottommenu > ul > li > ul {
+    display: block;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+nav.bottommenu > ul > li > ul > li {
+    display: block;
+    position: relative;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+/*latestnews*/
+div.latestnews {
+    margin-top: 0;
+}
+div.latestnews > div.g-4 {
+    background: transparent url('/images/site/smart/overlay_white.png') scroll repeat;
+    padding: 10px 10px 10px 60px;
+    width:228px;
+    border: 1px solid #d9d9d9;
+}
+div.latestnews > div.g-4:hover {
+    background: #FFF;
+}
+div.latestnews > div.g-4 > div {
+    position: relative;
+}
+div.latestnews > div.g-4 > div > div.date {
+    position: absolute;
+    width: 60px;
+    height: 36px;
+    padding: 8px 0 0;
+    left: 0;
+    top:0;
+    margin-left: -70px;
+    background: transparent url('/images/site/smart/date.png') scroll no-repeat;
+    z-index: 1;
+}
+div.latestnews > div.g-4 > div > div.date > span {
+    color: #FFF;
+    font-size: 10px;
+    font-style: italic;
+    text-align: center;
+    line-height: 10px;
+    display: block;
+}
+/*footer*/
+div.footerbar {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 0;
+    background: #efefef;
+    border-top: 1px dashed #b6b6b6;
+}
+div.footerbar > div.footer-container {
+    width: 940px;
+    margin: 0 auto;
+}
+
+/*portfolio*/
+div.album-headline {
+    background: #FFF;
+    padding: 10px;
+}
+div.album-headline > a.image {
+    display: block;
+    max-height: 180px;
+    border: 1px solid #bdbdbd;
+    overflow: hidden;
+    opacity: 1;
+    transition: all ease-out 0.2s;
+    -moz-transition: all ease-out 0.2s;
+    -webkit-transition: all ease-out 0.2s;
+    -o-transition: all ease-out 0.2s;
+}
+div.album-headline > a.image:hover {
+    opacity: 0.7;
+}
+
+div.gallery-cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    z-index: -99;
+    opacity: 0.7;
+}
+
+/*igallery*/
+.iGallery {
+    position: relative;
+    width: 690px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background: #000;
+}
+.iGallery > div {
+    position: relative;
+    z-index: 0;
+}
+.iGallery > .control {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 220px;
+    width: 26px;
+    height: 45px;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+}
+.iGallery > .control:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+.iGallery > .prev {
+    left: 10px;
+    background-image: url('/images/site/smart/gallery/prev.png');
+}
+.iGallery > .next {
+    right: 10px;
+    background-image: url('/images/site/smart/gallery/next.png');
+}
+.iGallery > .screen {
+    width: 690px;
+    height: 450px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 14px;
+    text-align: center;
+}
+.iGallery > .screen > img {
+    cursor: pointer;
+    width: auto;
+    max-width: none;
+    max-height: 100%;
+}
+.iGallery > .screen > .descr {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: transparent url('/images/site/smart/overlay_black.png') scroll repeat;
+    padding: 4px 0;
+}
+.iGallery > .screen > .descr > .caption {
+    font-size: 11px;
+    color: #FFF;
+    margin: 0;
+    text-align: left;
+    line-height: 15px;
+}
+.iGallery > .filmstrip {
+    width: 690px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.iGallery > .filmstrip > div {
+    position: relative;
+    width: 700px;
+    height: 100px;
+    overflow: hidden;
+    margin-left: -10px;
+}
+.iGallery > .filmstrip ul {
+    display: block;
+    position: absolute;
+    list-style: none;
+    width: 33000px;
+    margin: 0;
+}
+.iGallery > .filmstrip ul > li {
+    display: block;
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    width: 130px;
+    height: 100px;
+    vertical-align: middle;
+}
+.iGallery > .filmstrip ul > li > a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid #FFF;
+    overflow: hidden;
+    vertical-align: middle;
+    background-position: center;
+    background-size: cover;
+}
+.iGallery > .filmstrip ul > li > a.active {
+    border-color: #9d9d9d;
+}
+.iGallery > .filmstrip ul > li > a > img {
+    display: block;
+}
+
+/*modal*/
+div.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    background: #000;
+    overflow: auto;
+    padding: 50px 0;
+}
+div.modal-container > div {
+    position: relative;
+    width: 900px;
+    height: 566px;
+    left: 50%;
+    margin-left: -450px;
+}
+div.modal-container > div > a.next,
+div.modal-container > div > a.prev {
+    display: block;
+    position: absolute;
+    width: 50px;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    transition: ease all 0.2s;
+    -moz-transition: ease all 0.2s;
+    -webkit-transition: ease all 0.2s;
+    -o-transition: ease all 0.2s;
+    -ms-transition: ease all 0.2s;
+}
+div.modal-container > div > a.next:hover,
+div.modal-container > div > a.prev:hover {
+    opacity: 1;
+}
+div.modal-container > div > a.next {
+    right: 0;
+    background-image: url('/images/site/smart/gallery/next.png');
+}
+div.modal-container > div > a.prev {
+    left: 0;
+    background-image: url('/images/site/smart/gallery/prev.png');
+}
+div.modal-container > div > div.screen {
+    position: relative;
+    width: 900px;
+    height: 566px;
+    text-align: center;
+    overflow: hidden;
+}
+div.modal-container > div > div.screen > img {
+    height: 100%;
+}
+div.modal-container > a.close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 24px;
+}
+
+ul.album-nav {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    float: right;
+}
+ul.album-nav > li {
+    display: block;
+    position: relative;
+    line-height: 24px;
+    height: 24px;
+    padding: 0 10px;
+    font-size: 16px;
+    color: #666666;
+    font-family: 'Cuprum';
+    text-align: right;
+}
+ul.album-nav > li > a {
+    color: #FFF;
+}
+
+/*socbuttons*/
+div.social {
+    padding:10px 10px 0;
+    background: #efefef;
+    border-top: 1px solid #c5c5c5;
+}
+
+div.socbuttons {
+    position: fixed;
+    top: 165px;
+    right: 0;
+}
+div.socbuttons > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+div.socbuttons > ul > li {
+    display: block;
+    margin-bottom: 10px;
+}
+div.socbuttons > ul > li > a {
+    display: inline-block;
+    line-height: 32px;
+    height: 32px;
+    width: 36px;
+    background: transparent url('/images/site/smart/sprites/sprite-social.png') scroll no-repeat;
+}
+div.socbuttons > ul > li > a.fb {
+    background-position: 4px 0px;
+}
+div.socbuttons > ul > li > a.fb:hover {
+    background-position: 0px 0px;
+}
+div.socbuttons > ul > li > a.tw {
+    background-position: 4px -32px;
+}
+div.socbuttons > ul > li > a.tw:hover {
+    background-position: 0px -32px;
+}
+div.socbuttons > ul > li > a.vk {
+    background-position: 4px -64px;
+}
+div.socbuttons > ul > li > a.vk:hover {
+    background-position: 0px -64px;
+}
+div.socbuttons > ul > li > a.lj {
+    background-position: 4px -96px;
+}
+div.socbuttons > ul > li > a.lj:hover {
+    background-position: 0px -96px;
+}
+
+/*share buttons*/
+.share {
+    position: relative;
+    padding: 10px 0;
+}
+.share > ul {
+    display: inline-table;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.share > ul > li {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 20px 0;
+}
+.share > ul > li:first-child {
+    padding-left: 0;
+}
+
+/*submenu*/
+.submenu {
+    position: relative;
+    padding: 0 10px 0;
+    background: #ffffff;
+}
+.submenu > ul {
+    display: block;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.submenu > ul > li {
+    display: block;
+    position: relative;
+    padding: 10px;
+    border-top: 1px solid rgb(224, 224, 224);
+}
+.submenu > ul > li:first-child {
+    border-top: none;
+}
+.submenu > ul > li.active {
+    
+}
+.submenu > ul > li > a {
+    
+}
+
+.filter-menu {
+    position: relative;
+    padding: 10px;
+    background: #ffffff;
+}
+.filter-menu > h3 {
+    display: block;
+    position: relative;
+    margin-bottom: 14px;
+    font-size: 16px;
+    margin-top: 0;
+    padding: 0;
+    line-height: 18px;
+}
+.filter-menu > ul {
+    display: block;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.filter-menu > ul > li {
+    display: block;
+    position: relative;
+    padding: 2px 0;
+}
+
+/*blog*/
+.blog-list {
+    
+}
+.blog-list > .blog-item {
+    position: relative;
+    background: #FFF;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+.blog-list > .blog-item:first-child {
+    margin-top: 0;
+}
+.blog-list > .blog-item > .date {
+    position: absolute;
+    left: -40px;
+    top: 15px;
+    width: 60px;
+    height: 31px;
+    padding-top: 5px;
+    background: transparent url('/images/site/smart/sprites/date.png') scroll no-repeat;
+}
+.blog-list > .blog-item > .date > span {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-style: italic;
+    color: #FFF;
+    line-height: 12px;
+    height: 12px;
+}
+.blog-list > .blog-item > .title {
+    display: block;
+    padding: 12px 12px 12px 32px;
+    font-family: 'PT Serif';
+    font-size: 24px;
+    color: #666666;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 0;
+}
+.blog-list > .blog-item > .descr {
+    padding: 12px 12px 12px 32px;
+    font-size: 13px;
+    color: #333333;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+.blog-list > .blog-item > .summary {
+    background: #f2f2f2;
+    padding: 12px 12px 12px 32px;
+}
+.blog-list > .blog-item > .summary .readmore {
+    
+}
+
+/*static page*/
+.heading-title {
+    margin-bottom: 30px;
+}
+.heading-title h1 {
+    font-size: 32px;
+}
+.story {
+    background: #FFF;
+    padding: 10px 20px 20px;
+}
+.story > hgroup {
+    position: relative;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin-bottom: 12px;
+}
+.story > hgroup > .title {
+    display: block;
+    position: relative;
+    font-family: 'PT Serif';
+    font-size: 24px;
+    color: #666666;
+}
+.story > article {
+    position: relative;
+    margin-bottom: 12px;
+}
+.story > .summary {
+    position: relative;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+.story > .comments {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calendarGrid {
+    display: table;
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 20px;
+}
+.calendarGrid > thead > tr > th {
+    font-family: 'PT Serif';
+    font-size: 32px;
+    background-color: #f2f2f2;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    height: 50px;
+    vertical-align: middle;
+    color: #8b1735;
+}
+.calendarGrid > tbody > tr > td {
+    vertical-align: top;
+    background-color: #d9d9d9;
+    -webkit-box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+}
+
+.calendarTable {
+    font-family: 'Trebuchet MS';
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #9d9d9d;
+}
+.calendarTable td {
+    background-color: #E9EAE6;
+    height: 35px;
+    vertical-align: top;
+    font-size: 14px;
+    color: #666666;
+    border: 1px solid #d9d9d9;
+}
+.calendarTable td:hover {
+    background-color: #f2f2f2;
+}
+.calendarTable td.active {
+    background-color: #d9f7d9;
+}
+.calendarTable a {
+    font-size: 16px;
+}
+.calendarTable th {
+    background-color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    font-family: 'PT Sans';
+    color: #353535;
+}
+
+.calendarTable .caption {
+    position: absolute;
+    padding: 8px 12px;
+    max-width: 240px;
+    color: #FFF;
+    background: rgba(24, 24, 24, 0.75);
+    font-family: 'PT Sans';
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.calendarMenu a {
+    display: inline-block;
+    font-family: 'Cuprum', sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    height: 24px;
+    padding: 0 8px;
+    margin: 0 5px;
+}
+.calendarMenu a.active {
+    background-color: #8b1735;
+    color: #FFF;
+}

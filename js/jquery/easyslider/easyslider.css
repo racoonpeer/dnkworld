@@ -1,0 +1,28 @@
+/* image replacement */
+#prevBtn, #nextBtn{ margin:0; padding:0; display:block; overflow:hidden; text-indent:-8000px; }
+/* // image replacement */  
+
+
+/* Easy Slider */
+
+#slider { border-left:1px solid #b5b1b0; border-right:1px solid #b5b1b0; }
+#slider ul, #slider li{ margin:0; padding:0; list-style:none; }
+
+/* define width and height of list item (slide) entire slider area will adjust according to the parameters provided here*/
+#slider li{ width:759px; height:342px; overflow:hidden; } 
+
+#prevBtn, #nextBtn{ display:block; width:51px; height:19px; position:absolute; top:161px; z-index:1000; } 
+#prevBtn{ left:9px; }              
+#nextBtn{ right:9px; }              
+#prevBtn a, #nextBtn a{ display:block; position:relative; width:51px; height:19px; background:url(prev.png) no-repeat 0 0; } 
+#nextBtn a{ background:url(next.png) no-repeat 0 0; } 
+
+/* numeric controls */ 
+ol#controls{ margin:1em 0; padding:0; height:28px; }
+ol#controls li{ margin:0 10px 0 0; padding:0; float:left; list-style:none; height:28px; line-height:28px; }
+ol#controls li a{ float:left; height:28px; line-height:28px; border:1px solid #ccc; background:#DAF3F8; color:#555; padding:0 10px; text-decoration:none; }
+ol#controls li.current a{ background:#5DC9E1; color:#fff; }
+ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+/* // numeric controls */ 
+
+/* // Easy Slider */

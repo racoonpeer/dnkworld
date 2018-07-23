@@ -1,0 +1,72 @@
+.sd .sd-l, .sd .sd-m, .sd .sd-r {float:left; height:201px;}
+.sd .sd-l { background:url(../../../images/site/smart/slider.png) no-repeat scroll 0 0; width:47px;}
+.sd .sd-r { background:url(../../../images/site/smart/slider.png) no-repeat scroll 0 -201px; width:47px;}
+.sd .sd-m { background:url(../../../images/site/smart/slider.png) repeat-x scroll 0 -402px; width:860px;}
+
+.sd .sd-l a.sd-prev, .sd .sd-r a.sd-next {display:block;width:39px;height:39px; position:relative;top:80px;left:4px;}
+.sd .sd-l a.sd-prev {background:url(../../../images/site/smart/slider-btn-scroll.png) no-repeat scroll 0 -78px;}
+.sd .sd-r a.sd-next {background:url(../../../images/site/smart/slider-btn-scroll.png) no-repeat scroll 0 0px;}
+.sd .sd-l a.sd-prev:hover {background-position: 0 -117px;}
+.sd .sd-r a.sd-next:hover {background-position: 0 -39px;}
+
+.sd-navigation {text-align:center;height:27px;}
+.sd-navigation-sep {float:left;padding-left:100px;height:1px;}
+.sd-navigation a, .sd-navigation a  span {color:#647d89; font-size:15px; text-decoration:none;}
+.sd-navigation a {
+	float:left;
+	height:27px;
+	line-height:27px;
+	margin-left:42px;
+	margin-right:42px; 
+	padding-right:5px;
+	background:url(../../../images/site/smart/slider-btn.png) no-repeat scroll right -27px;
+}
+.sd-navigation a.first{
+	margin-left:15px;
+}
+.sd-navigation a.last{
+	margin-right:15px; 
+}
+
+/*width:240px padding:0 40px;*/
+.sd-navigation a span{padding-left:5px;width:240px;float:left;height:27px;line-height:27px; background:url(../../../images/site/smart/slider-btn.png) no-repeat scroll left 0;}
+
+.sd-navigation a.active,.sd-navigation a:hover {color:#FFF;background-position: right -81px}
+.sd-navigation a.active span,.sd-navigation a:hover span {color:#FFF;background-position: left -54px}
+
+
+.sd-m ol, .sd-m ul, .sd-m li, .sd-m h3, .sd-m h2, .sd-m h1, .sd-m p {
+list-style:none outside none;
+margin:0;
+padding:0; }
+
+.sd-sections {
+background-color:white;
+height:201px;
+overflow:hidden;
+width:874px;
+}
+
+.sd-sections li {
+float:left;
+overflow:hidden;
+padding:0 0; width:874px;
+}
+.sd-sections-one li {
+width:172px;
+}
+.sd-sections li .item .img-box{
+    width:172px;
+    height:185px;
+    overflow:hidden;
+    background:url(../../../images/site/smart/slider-item-bg.jpg) no-repeat scroll top center;
+}
+.sd-sections li .item .img-box img{
+    margin-top: 15px;
+}
+
+.sd .sd-m ul {width:4370px;} /*3*874 = 2622px   5*874 = 4370*/
+/*.sd .sd-m ul, .sd .sd-m li {list-style:none outside none;}*/
+
+.sd .sd-m table.item {float:left; margin:0 0 0 0px; border-collapse:collapse; }
+.sd .sd-m table.item  tr td {float:left;display:block;padding:4px 0 0 0;overflow:hidden;height:193px;vertical-align:middle; text-align:center; border:0 none; border-collapse:collapse;}
